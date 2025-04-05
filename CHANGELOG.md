@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.17
+
+### Patch Changes
+
+- b0c0308: dependabot: update @eslint/js
+- b0c0308: dependabot: update @sveltejs/kit
+- b0c0308: dependabot: update eslint
+
 ## 0.1.16
 
 ### Patch Changes
