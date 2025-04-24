@@ -1,5 +1,5 @@
 ---
-svelte5kit-localization: patch
+'@ktarmyshov/svelte5kit-localization': patch
 ---
 
 dependabot: directory '/', update svelte
