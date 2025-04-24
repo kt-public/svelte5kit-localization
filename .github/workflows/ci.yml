@@ -45,6 +45,7 @@ jobs:
         with:
           matrix-node-version: '[${{ matrix.node-version }}]'
           install-script: npm ci
+          run-script: npm run build
 
       - uses: cypress-io/github-action@v6
         with:
