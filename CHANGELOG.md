@@ -1,5 +1,53 @@
 # Changelog
 
+## 0.1.17
+
+### Patch Changes
+
+- 010c172: dependabot: directory '/', update @eslint/js
+- 010c172: dependabot: directory '/', update eslint
+- 010c172: dependabot: directory '/', update svelte
+- 010c172: dependabot: directory '/', update vite
+- 89f40c3: dependabot: directory '/', update @eslint/js
+- 89f40c3: dependabot: directory '/', update eslint
+- 89f40c3: dependabot: directory '/', update typescript-eslint
+- 59811e7: dependabot: directory '/', update cypress
+- 59811e7: dependabot: directory '/', update eslint-plugin-cypress
+- 59811e7: dependabot: directory '/', update svelte
+- 70721ef: dependabot: update @changesets/cli
+- f12b0fc: dependabot: update @changesets/cli
+- d15acfd: dependabot: update @changesets/cli
+- b0c0308: dependabot: update @eslint/js
+- b0c0308: dependabot: update @sveltejs/kit
+- 65a77a3: dependabot: update @sveltejs/kit
+- 9f3cb99: dependabot: update @sveltejs/kit from 2.20.5 to 2.20.6
+- 70721ef: dependabot: update @sveltejs/kit
+- 70721ef: dependabot: update @sveltejs/package
+- 6876431: dependabot: update @types/node
+- b8beb7a: dependabot: update cypress
+- 19e90c2: dependabot: update cypress
+- b0c0308: dependabot: update eslint
+- 9db7ebc: dependabot: update eslint-config-prettier
+- 65a77a3: dependabot: update eslint-plugin-cypress
+- 9db7ebc: dependabot: update publint
+- 70721ef: dependabot: update publint
+- 1aab090: dependabot: update svelte
+- 264487d: dependabot: update svelte
+- b8beb7a: dependabot: update svelte
+- 65a77a3: dependabot: update svelte
+- 9db7ebc: dependabot: update svelte
+- 6876431: dependabot: update svelte
+- 70721ef: dependabot: update svelte
+- f12b0fc: dependabot: update svelte
+- 19e90c2: dependabot: update svelte
+- fe01675: dependabot: update svelte-check
+- 1aab090: dependabot: update typescript
+- 264487d: dependabot: update typescript-eslint
+- 70721ef: dependabot: update typescript-eslint
+- 9db7ebc: dependabot: update vite
+- d15acfd: dependabot: update vite
+- 19e90c2: dependabot: update vite
+
 ## 0.1.16
 
 ### Patch Changes
