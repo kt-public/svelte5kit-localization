@@ -40,23 +40,23 @@ import DOMPurify from 'dompurify';
 // }
 
 export function ssrVisit(url: string) {
-  cy.reload();
-  cy.request(url)
-    .its('body')
-    .then((html) => {
-      //html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-      html = DOMPurify.sanitize(html, { FORBID_TAGS: ['script'] });
-      cy.document().invoke({ log: false }, 'write', html);
-    });
-  cy.get('script').should('not.exist');
+	cy.reload();
+	cy.request(url)
+		.its('body')
+		.then((html) => {
+			//html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+			html = DOMPurify.sanitize(html, { FORBID_TAGS: ['script'] });
+			cy.document().invoke({ log: false }, 'write', html);
+		});
+	cy.get('script').should('not.exist');
 }
 Cypress.Commands.add('ssrVisit', ssrVisit);
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace Cypress {
-    interface Chainable {
-      ssrVisit(url: string): ReturnType<typeof ssrVisit>;
-    }
-  }
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Cypress {
+		interface Chainable {
+			ssrVisit(url: string): ReturnType<typeof ssrVisit>;
+		}
+	}
 }

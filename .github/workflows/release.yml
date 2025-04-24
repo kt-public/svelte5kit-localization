@@ -2,9 +2,10 @@ name: Release
 
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ['CI']
     types:
       - completed
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -44,12 +45,11 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
-      - uses: actions/setup-node@v4
+      - uses: kt-actions/npm-run-script@v1
         with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
+          matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
+          earliest: true
+          install-script: npm ci
 
       - id: changesets
         uses: changesets/action@v1
@@ -61,3 +61,4 @@ jobs:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           NPM_CONFIG_PROVENANCE: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        continue-on-error: true

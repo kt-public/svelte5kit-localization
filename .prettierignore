@@ -2,8 +2,5 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
-
-.svelte-kit/
-CHANGELOG.md
-.github/
-.changeset/
+bun.lock
+bun.lockb

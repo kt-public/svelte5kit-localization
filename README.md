@@ -30,45 +30,45 @@ const importDirPath = '/src/lib/localization/locales';
 const importLoads = import.meta.glob(['/src/lib/localization/locales/**/*']) as ImportLoads;
 // Configure the factory
 LocalizationFactory.configure({
-  browser,
-  contextName: 'i18n',
-  importDirPath,
-  importLoads
+	browser,
+	contextName: 'i18n',
+	importDirPath,
+	importLoads
 });
 // Now configure the service
 const importLoaderFactory = LocalizationFactory.importLoaderFactory();
 LocalizationFactory.setCommonServiceConfig({
-  availableLocales: ['en'],
-  // Set prepare on the top level
-  // IMPL: const prepare = config.prepare ?? prepareNamedFormat
-  // Use this option for ICU format, so the localizations are preparsed (see impl below)
-  // prepare: prepareICUFormat
-  loaders: [
-    {
-      key: 'navigation',
-      load: importLoaderFactory('navigation.json')
-    },
-    {
-      key: 'another',
-      load: importLoaderFactory('another.json'),
-      routes: ['/onemore']
-    }
-  ],
-  logger: dev && browser ? console : undefined
+	availableLocales: ['en'],
+	// Set prepare on the top level
+	// IMPL: const prepare = config.prepare ?? prepareNamedFormat
+	// Use this option for ICU format, so the localizations are preparsed (see impl below)
+	// prepare: prepareICUFormat
+	loaders: [
+		{
+			key: 'navigation',
+			load: importLoaderFactory('navigation.json')
+		},
+		{
+			key: 'another',
+			load: importLoaderFactory('another.json'),
+			routes: ['/onemore']
+		}
+	],
+	logger: dev && browser ? console : undefined
 });
 
 export const {
-  initialLoadLocalizations,
-  setContextService: setLocalizationContextService,
-  getContextService: getLocalizationContextService,
-  extractLocales
+	initialLoadLocalizations,
+	setContextService: setLocalizationContextService,
+	getContextService: getLocalizationContextService,
+	extractLocales
 } = LocalizationFactory;
 
 export function loadLocalizations(pathname: string) {
-  return getLocalizationContextService().loadLocalizations(pathname);
+	return getLocalizationContextService().loadLocalizations(pathname);
 }
 export function setActiveLocale(locale: string) {
-  return getLocalizationContextService().setActiveLocale(locale);
+	return getLocalizationContextService().setActiveLocale(locale);
 }
 ```
 
@@ -160,12 +160,12 @@ load(...
 
 ```ts
 export function namedFormat(
-  str: string,
-  replacements?: Record<string, string | undefined>
+	str: string,
+	replacements?: Record<string, string | undefined>
 ): string {
-  return str.replace(/{([^{}]*)}/g, function (match, key) {
-    return replacements?.[key] || match;
-  });
+	return str.replace(/{([^{}]*)}/g, function (match, key) {
+		return replacements?.[key] || match;
+	});
 }
 ```
 
@@ -173,9 +173,9 @@ export function namedFormat(
 
 ```ts
 export const prepareNamedFormat: PrepareFunction = (_: string, value: string) => {
-  return function (params?: FormatParams) {
-    return namedFormat(value, params);
-  };
+	return function (params?: FormatParams) {
+		return namedFormat(value, params);
+	};
 };
 ```
 
@@ -183,9 +183,9 @@ export const prepareNamedFormat: PrepareFunction = (_: string, value: string) =>
 
 ```ts
 export const prepareICUFormat: PrepareFunction = (locale: string, value: string) => {
-  const msg = new IntlMessageFormat(value, locale);
-  return function (params?: FormatParams) {
-    return msg.format(params);
-  };
+	const msg = new IntlMessageFormat(value, locale);
+	return function (params?: FormatParams) {
+		return msg.format(params);
+	};
 };
 ```
