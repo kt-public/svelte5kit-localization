@@ -1,21 +1,21 @@
 <script lang="ts">
-  import { beforeNavigate } from '$app/navigation';
-  import { page } from '$app/state';
-  import { onMount } from 'svelte';
-  import { loadLocalizations, setLocalizationContextService } from './localization/index.js';
+	import { beforeNavigate } from '$app/navigation';
+	import { page } from '$app/state';
+	import { onMount } from 'svelte';
+	import { loadLocalizations, setLocalizationContextService } from './localization/index.js';
 
-  let { children, data } = $props();
+	let { children, data } = $props();
 
-  setLocalizationContextService(data.i18n);
-  beforeNavigate((navigation) => {
-    if (navigation.to?.url.pathname) {
-      loadLocalizations(navigation.to.url.pathname);
-    }
-  });
+	setLocalizationContextService(data.i18n);
+	beforeNavigate((navigation) => {
+		if (navigation.to?.url.pathname) {
+			loadLocalizations(navigation.to.url.pathname);
+		}
+	});
 
-  onMount(() => {
-    document.body.classList.add('app-started');
-  });
+	onMount(() => {
+		document.body.classList.add('app-started');
+	});
 </script>
 
 <a href="/">Apples</a>

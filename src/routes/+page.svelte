@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { getLocalizationContextService } from './localization/index.js';
+	import { getLocalizationContextService } from './localization/index.js';
 
-  const { text, getPSText } = getLocalizationContextService();
-  const psappleText = getPSText('apples');
-  const psorangeTextZero = getPSText('prefix', 'zero');
-  const psananaTextZero = getPSText('regex.ananas_and_bananas', 'zero');
+	const { text, getPSText } = getLocalizationContextService();
+	const psappleText = getPSText('apples');
+	const psorangeTextZero = getPSText('prefix', 'zero');
+	const psananaTextZero = getPSText('regex.ananas_and_bananas', 'zero');
 </script>
 
 <h1>Welcome to your library project</h1>

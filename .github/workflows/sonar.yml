@@ -1,4 +1,4 @@
-name: "SonarQube Scan"
+name: 'SonarQube Scan'
 
 on:
   workflow_call:
@@ -7,7 +7,7 @@ on:
   # pull_request:
   #   branches: ["main"]
   schedule:
-    - cron: "37 9 * * 4"
+    - cron: '37 9 * * 4'
 
 jobs:
   analyze:

@@ -12,58 +12,58 @@ const importDirPath = isICU ? importDirPathICU : importDirPathNamed;
 
 // This is the glob import for the locales
 const importLoadsNamed = import.meta.glob([
-  '/src/routes/localization/locales/named/**/*'
+	'/src/routes/localization/locales/named/**/*'
 ]) as ImportLoads;
 const importLoadsICU = import.meta.glob([
-  '/src/routes/localization/locales/icu/**/*'
+	'/src/routes/localization/locales/icu/**/*'
 ]) as ImportLoads;
 const importLoads = isICU ? importLoadsICU : importLoadsNamed;
 
 // Configure the factory
 LocalizationFactory.configure({
-  browser,
-  contextName: 'i18n',
-  importDirPath,
-  importLoads
+	browser,
+	contextName: 'i18n',
+	importDirPath,
+	importLoads
 });
 // Now configure the service
 const importLoaderFactory = LocalizationFactory.importLoaderFactory();
 LocalizationFactory.setCommonServiceConfig({
-  availableLocales: ['en', 'de'],
-  // Set prepare on the top level
-  // IMPL: const prepare = config.prepare ?? prepareNamedFormat
-  // Use this option for ICU format, so the localizations are preparsed (see impl below)
-  // prepare: prepareICUFormat
-  loaders: [
-    {
-      key: 'apples',
-      load: importLoaderFactory('apples.json')
-    },
-    {
-      key: 'prefix.oranges',
-      load: importLoaderFactory('prefix/oranges.json'),
-      routes: ['/oranges']
-    },
-    {
-      key: 'regex.ananas_and_bananas',
-      load: importLoaderFactory('regex/ananas_and_bananas.json'),
-      // Regex that matches *anana*
-      routes: [/.*anana.*/]
-    }
-  ],
-  logger: dev && browser ? console : undefined
+	availableLocales: ['en', 'de'],
+	// Set prepare on the top level
+	// IMPL: const prepare = config.prepare ?? prepareNamedFormat
+	// Use this option for ICU format, so the localizations are preparsed (see impl below)
+	// prepare: prepareICUFormat
+	loaders: [
+		{
+			key: 'apples',
+			load: importLoaderFactory('apples.json')
+		},
+		{
+			key: 'prefix.oranges',
+			load: importLoaderFactory('prefix/oranges.json'),
+			routes: ['/oranges']
+		},
+		{
+			key: 'regex.ananas_and_bananas',
+			load: importLoaderFactory('regex/ananas_and_bananas.json'),
+			// Regex that matches *anana*
+			routes: [/.*anana.*/]
+		}
+	],
+	logger: dev && browser ? console : undefined
 });
 
 export const {
-  initialLoadLocalizations,
-  setContextService: setLocalizationContextService,
-  getContextService: getLocalizationContextService,
-  extractLocales
+	initialLoadLocalizations,
+	setContextService: setLocalizationContextService,
+	getContextService: getLocalizationContextService,
+	extractLocales
 } = LocalizationFactory;
 
 export function loadLocalizations(pathname: string) {
-  return getLocalizationContextService().loadLocalizations(pathname);
+	return getLocalizationContextService().loadLocalizations(pathname);
 }
 export function setActiveLocale(locale: string) {
-  return getLocalizationContextService().setActiveLocale(locale);
+	return getLocalizationContextService().setActiveLocale(locale);
 }
