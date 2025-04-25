@@ -37,9 +37,9 @@ jobs:
       - uses: kt-actions/npm-run-script@v1
         with:
           node-version: ${{ matrix.node-version }}
-          install-script: 'npm ci'
+          install-script: ''
           run-script: ''
-          # cache-delete: true # uncomment this line to delete the cache
+          cache-delete: true # uncomment this line to delete the cache
           cache-additional-path: /home/runner/.cache/Cypress
   ci:
     needs: cache
@@ -47,5 +47,8 @@ jobs:
     with:
       # pass the matrix node version to the called workflow
       matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
+      install-script: |
+        npm ci
+        npx cypress install
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
