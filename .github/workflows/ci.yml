@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ${{ vars.MATRIX_NODE_VERSION }}
+        node-version: ${{ fromJson(vars.MATRIX_NODE_VERSION) }}
     steps:
       - uses: kt-actions/npm-run-script@v1
         with:
