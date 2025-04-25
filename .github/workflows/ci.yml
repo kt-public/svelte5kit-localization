@@ -21,7 +21,19 @@ jobs:
   #   steps:
   #     - run: ${{ tojson(github) }}
   #       shell: cat {0}
+  cache-delete:
+    permissions:
+      actions: write
+    runs-on: ubuntu-latest
+    steps:
+      - continue-on-error: true
+        run: |
+          gh extension install actions/gh-actions-cache
+          gh actions-cache delete "${{ env.cache-key }}" --confirm
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   cache:
+    needs: cache-delete
     runs-on: ubuntu-latest
     strategy:
       matrix:
