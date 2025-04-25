@@ -1,3 +1,4 @@
+[![NPM Version](https://img.shields.io/npm/v/%40ktarmyshov%2Fsvelte5kit-localization)](https://www.npmjs.com/package/@ktarmyshov/svelte5kit-localization)
 [![CI](https://github.com/kt-public/svelte5kit-localization/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kt-public/svelte5kit-localization/actions/workflows/ci.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kt-public_svelte5kit-localization&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kt-public_svelte5kit-localization)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kt-public_svelte5kit-localization&metric=bugs)](https://sonarcloud.io/summary/new_code?id=kt-public_svelte5kit-localization)
