@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+# cancel in-progress runs on new commits to same PR (gitub.event.number)
+concurrency:
+  # group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  # echo:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: ${{ tojson(github) }}
+  #       shell: cat {0}
+  ci:
+    uses: kt-workflows/npm-ci/.github/workflows/main.yml@v1
+    with:
+      # pass the matrix node version to the called workflow
+      matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
