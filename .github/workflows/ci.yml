@@ -29,6 +29,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # We need to cache some additional paths for Cypress
+      # so call the npm-run-script action to install dependencies
+      # and cache the additional paths
       - uses: kt-actions/npm-run-script@v1
         with:
           node-version: ${{ matrix.node-version }}
