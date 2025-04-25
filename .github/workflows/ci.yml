@@ -21,28 +21,28 @@ jobs:
   #   steps:
   #     - run: ${{ tojson(github) }}
   #       shell: cat {0}
-  cache:
-    permissions:
-      actions: write
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ${{ fromJson(vars.MATRIX_NODE_VERSION) }}
-    steps:
-      - uses: actions/checkout@v4
+  # cache:
+  #   permissions:
+  #     actions: write
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: ${{ fromJson(vars.MATRIX_NODE_VERSION) }}
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      # We need to cache some additional paths for Cypress
-      # so call the npm-run-script action to install dependencies
-      # and cache the additional paths
-      - uses: kt-actions/npm-run-script@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          install-script: ''
-          run-script: ''
-          cache-delete: true # uncomment this line to delete the cache
-          cache-additional-path: /home/runner/.cache/Cypress
+  #     # We need to cache some additional paths for Cypress
+  #     # so call the npm-run-script action to install dependencies
+  #     # and cache the additional paths
+  #     - uses: kt-actions/npm-run-script@v1
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         install-script: ''
+  #         run-script: ''
+  #         cache-delete: true # uncomment this line to delete the cache
+  #         cache-additional-path: /home/runner/.cache/Cypress
   ci:
-    needs: cache
+    # needs: cache
     uses: kt-workflows/npm-ci/.github/workflows/main.yml@v1
     with:
       # pass the matrix node version to the called workflow
