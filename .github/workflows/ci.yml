@@ -27,13 +27,15 @@ jobs:
       matrix:
         node-version: ${{ fromJson(vars.MATRIX_NODE_VERSION) }}
     steps:
+      - uses: actions/checkout@v4
+
       - uses: kt-actions/npm-run-script@v1
         with:
           node-version: ${{ matrix.node-version }}
           install-script: 'npm ci'
           run-script: ''
-          # cache-save-always: true
-          # cache-additional-path: /home/runner/.cache/Cypress
+          cache-save-always: true
+          cache-additional-path: /home/runner/.cache/Cypress
   ci:
     needs: cache
     uses: kt-workflows/npm-ci/.github/workflows/main.yml@v1
