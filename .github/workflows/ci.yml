@@ -21,7 +21,21 @@ jobs:
   #   steps:
   #     - run: ${{ tojson(github) }}
   #       shell: cat {0}
+  cache:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ${{ vars.MATRIX_NODE_VERSION }}
+    steps:
+      - uses: kt-actions/npm-run-script@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          install-script: 'npm ci'
+          run-script: ''
+          cache-save-always: true
+          cache-additional-path: /home/runner/.cache/Cypress
   ci:
+    needs: cache
     uses: kt-workflows/npm-ci/.github/workflows/main.yml@v1
     with:
       # pass the matrix node version to the called workflow
