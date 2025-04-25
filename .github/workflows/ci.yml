@@ -51,5 +51,7 @@ jobs:
       matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
       # cache-delete: true # uncomment this line to delete the cache
       cache-additional-path: /home/runner/.cache/Cypress
+      test-script: ''
+      sonar-script: ''
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
