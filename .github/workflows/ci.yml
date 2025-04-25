@@ -21,19 +21,9 @@ jobs:
   #   steps:
   #     - run: ${{ tojson(github) }}
   #       shell: cat {0}
-  cache-delete:
+  cache:
     permissions:
       actions: write
-    runs-on: ubuntu-latest
-    steps:
-      - continue-on-error: true
-        run: |
-          gh extension install actions/gh-actions-cache
-          gh actions-cache delete "${{ env.cache-key }}" --confirm
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  cache:
-    needs: cache-delete
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -49,7 +39,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           install-script: 'npm ci'
           run-script: ''
-          cache-save-always: true
+          cache-delete: true # uncomment this line to delete the cache
           cache-additional-path: /home/runner/.cache/Cypress
   ci:
     needs: cache
