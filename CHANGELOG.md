@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.18
+
+### Patch Changes
+
+- fa07ee2: dependabot: directory '/', update cypress
+
 ## 0.1.17
 
 ### Patch Changes
