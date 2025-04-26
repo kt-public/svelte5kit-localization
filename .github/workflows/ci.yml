@@ -45,7 +45,7 @@ jobs:
   #         cache-delete: true # uncomment this line to delete the cache
   #         cache-additional-path: /home/runner/.cache/Cypress
   ci:
-    uses: kt-workflows/npm-ci/.github/workflows/main.yml@v1
+    uses: kt-workflows/npm-ci-cypress/.github/workflows/main.yml@v1
     with:
       # pass the matrix node version to the called workflow
       matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
