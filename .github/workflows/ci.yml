@@ -49,7 +49,6 @@ jobs:
     with:
       # pass the matrix node version to the called workflow
       matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
-      test-script: ''
       sonar-script: ''
       cache-additional-path: /home/runner/.cache/Cypress
       # cache-reset: true # uncomment this line to reset the cache
