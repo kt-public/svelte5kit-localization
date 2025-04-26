@@ -51,6 +51,6 @@ jobs:
       matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
       sonar-script: ''
       cache-additional-path: /home/runner/.cache/Cypress
-      cache-reset: true # uncomment this line to reset the cache
+      # cache-reset: true # uncomment this line to reset the cache
     # secrets:
     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
