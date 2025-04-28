@@ -14,7 +14,7 @@ concurrency:
 
 permissions:
   contents: read # to fetch code (actions/checkout)
-  actions: write # to cache (actions/cache)
+  actions: write # to delete cache (actions/cache)
 
 jobs:
   # echo:
@@ -22,12 +22,33 @@ jobs:
   #   steps:
   #     - run: ${{ tojson(github) }}
   #       shell: cat {0}
-  ci:
-    uses: kt-workflows/npm-ci-cypress/.github/workflows/main.yml@v1
-    with:
-      # pass the matrix node version to the called workflow
-      matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
-      cache-additional-path: /home/runner/.cache/Cypress
-      # cache-reset: true # uncomment this line to reset the cache
-    # secrets:
-    #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kt-actions/npm-ci-check@v1
+        with:
+          matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
+          cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ${{ fromJson(vars.MATRIX_NODE_VERSION) }}
+    steps:
+      - uses: kt-actions/npm-ci-test-cypress@v1
+        with:
+          # pass the matrix node version to the called workflow
+          node-version: ${{ matrix.node-version }}
+          cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
+
+  # SonarQube analysis is executed via bot, cause we don't do coverage here at the moment
+  # sonar:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: kt-actions/npm-ci-sonar@v1
+  #       with:
+  #         matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
+  #         cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
+  #         sonar-token: ${{ secrets.SONAR_TOKEN }}
+  #         fail-on-empty-token: true
