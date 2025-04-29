@@ -25,10 +25,11 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: kt-actions/npm-ci-check@v1
+      - uses: kt-workflows/actions/npm-ci-check@main
         with:
           matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
           cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
+          # cache-reset: true
 
   test:
     runs-on: ubuntu-latest
@@ -36,19 +37,21 @@ jobs:
       matrix:
         node-version: ${{ fromJson(vars.MATRIX_NODE_VERSION) }}
     steps:
-      - uses: kt-actions/npm-ci-test-cypress@v1
+      - uses: kt-workflows/actions/npm-ci-test@main
         with:
           # pass the matrix node version to the called workflow
           node-version: ${{ matrix.node-version }}
           cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
+          # cache-reset: true
 
-  # SonarQube analysis is executed via bot, cause we don't do coverage here at the moment
+  # No sonar for this repo, we don't do coverage for sk libs/apps (yet)
   # sonar:
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: kt-actions/npm-ci-sonar@v1
+  #     - uses: kt-workflows/actions/npm-ci-sonar@main
   #       with:
   #         matrix-node-version: ${{ vars.MATRIX_NODE_VERSION }}
-  #         cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
   #         sonar-token: ${{ secrets.SONAR_TOKEN }}
   #         fail-on-empty-token: true
+  #         cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
+  #         # cache-reset: true
