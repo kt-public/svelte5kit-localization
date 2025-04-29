@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-context('Apples', () => {
+context('Fruits', () => {
 	context('SSR', () => {
 		it('apples (/)', () => {
 			cy.ssrVisit('/');
