@@ -42,7 +42,7 @@ jobs:
           # pass the matrix node version to the called workflow
           node-version: ${{ matrix.node-version }}
           cache-additional-path: ${{ vars.CACHE_ADDITIONAL_PATH }}
-          cache-reset: true
+          # cache-reset: true
 
   # No sonar for this repo, we don't do coverage for sk libs/apps (yet)
   # sonar:
