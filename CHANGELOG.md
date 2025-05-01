@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.19
+
+### Patch Changes
+
+- 4724bdd: dependabot: directory '/', update cypress
+- 0f1cdb5: dependabot: directory '/', update typescript-eslint
+- 9af1ed8: dependabot: directory '/', update vite from 6.3.3 to 6.3.4
+- 36828b3: dependabot: directory '/', update @sveltejs/kit
+
 ## 0.1.18
 
 ### Patch Changes
