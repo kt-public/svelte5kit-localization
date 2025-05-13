@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.20
+
+### Patch Changes
+
+- a13cda9: dependabot: directory '/', update @eslint/compat
+- 9782038: dependabot: directory '/', update @eslint/js
+- 9782038: dependabot: directory '/', update eslint
+- 9782038: dependabot: directory '/', update svelte-check
+- 67264c9: dependabot: directory '/', update @changesets/cli
+- 67264c9: dependabot: directory '/', update typescript-eslint
+- 67264c9: dependabot: directory '/', update vite
+- b7fb240: dependabot: directory '/', update cypress
+- b4817a0: dependabot: directory '/', update eslint-config-prettier
+- b4817a0: dependabot: directory '/', update globals
+- 80f927f: dependabot: directory '/', update eslint-config-prettier
+- 5447b98: dependabot: directory '/', update @changesets/cli
+- 5447b98: dependabot: directory '/', update @sveltejs/adapter-auto
+- 5447b98: dependabot: directory '/', update @sveltejs/kit
+- 5447b98: dependabot: directory '/', update eslint-plugin-svelte
+- 5447b98: dependabot: directory '/', update svelte
+- 5447b98: dependabot: directory '/', update typescript-eslint
+
 ## 0.1.19
 
 ### Patch Changes
