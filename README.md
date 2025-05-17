@@ -4,6 +4,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kt-npm-modules_svelte5kit-localization&metric=bugs)](https://sonarcloud.io/summary/new_code?id=kt-npm-modules_svelte5kit-localization)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=kt-npm-modules_svelte5kit-localization&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=kt-npm-modules_svelte5kit-localization)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=kt-npm-modules_svelte5kit-localization&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=kt-npm-modules_svelte5kit-localization)
+[![Socket Badge](https://socket.dev/api/badge/npm/package/@ktarmyshov/svelte5kit-localization)](https://socket.dev/npm/package/@ktarmyshov/svelte5kit-localization/overview)
 
 # Summary
 
